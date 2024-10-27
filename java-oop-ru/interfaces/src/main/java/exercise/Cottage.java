@@ -1,7 +1,7 @@
 package exercise;
 public class Cottage implements Home {
-    final private double area;
-    final private int floor;
+    private double area;
+    private int floor;
     public Cottage(double area, int floor) {
         this.area = area;
         this.floor = floor;

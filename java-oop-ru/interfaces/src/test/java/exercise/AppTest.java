@@ -58,7 +58,7 @@ class AppTest {
 
     // BEGIN
     @Test
-    void testReversedSequence1(){
+    void testReversedSequence1() {
         CharSequence text = new ReversedSequence("abcdef");
         assertThat(text.toString()).isEqualTo("fedcba");
         assertThat(text.charAt(1)).isEqualTo('e');
