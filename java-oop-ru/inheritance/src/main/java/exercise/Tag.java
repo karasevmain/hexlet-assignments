@@ -13,5 +13,15 @@ class Tag {
         this.name = name;
         this.attributes = attributes;
     }
+
+    public String makeAttributesAsString() {
+        String result = attributes.keySet().stream()
+                .map(x -> {
+                    String value = attributes.get(x);
+                    return String.format(" %s=\"%s\"", x, value);
+                })
+                .collect(Collectors.joining(""));
+        return result;
+    }
 }
 // END

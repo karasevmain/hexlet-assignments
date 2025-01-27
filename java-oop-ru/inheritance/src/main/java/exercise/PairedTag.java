@@ -17,21 +17,11 @@ class PairedTag extends Tag {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append("<").append(name);
-        var entries = attributes.entrySet();
-        for (var entry : entries) {
-            result.append(" ");
-            result.append(entry.getKey());
-            result.append("=\"").append(entry.getValue()).append("\"");
-        }
-        result.append(">");
-        result.append(body);
-        singleTagList.forEach(x -> {
-            result.append(x.toString());
-        });
-        result.append("</").append(name).append(">");
-        return result.toString();
+        String tagListValues = singleTagList.stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(""));
+
+        return String.format("<%s%s>%s%s</%s>", name,makeAttributesAsString(),body,tagListValues,name);
     }
 }
 // END
